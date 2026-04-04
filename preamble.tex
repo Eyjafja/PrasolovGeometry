@@ -42,3 +42,6 @@
 
 % Убираем автоматическую нумерацию, чтобы заголовки были как в оригинале
 \setcounter{secnumdepth}{0}
+\AddEnumerateCounter{\asbuk}{\russian@asbuk@alph}{щ} % section 8.1
+\setlist{wide, nosep, font=\rmfamily\normalfont}
+\setlist[enumerate, 2]{label=\asbuk*)}
