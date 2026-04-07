@@ -8,6 +8,9 @@
 \usepackage{microtype}
 \usepackage{titlesec} % Пакет для управления стилем заголовков
 \usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc, intersections, through, backgrounds, arrows.meta}
 
 % Настройка Section: по центру, жирный, крупный
 \pagestyle{fancy}
@@ -45,3 +48,4 @@
 \AddEnumerateCounter{\asbuk}{\russian@asbuk@alph}{щ} % section 8.1
 \setlist{wide, nosep, font=\rmfamily\normalfont}
 \setlist[enumerate, 2]{label=\asbuk*)}
+\setlist[enumerate, 3]{label=\asbuk*)}
