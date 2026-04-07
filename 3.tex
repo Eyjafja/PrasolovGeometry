@@ -278,80 +278,82 @@
 		\end{enumerate}
 	\end{enumerate}
  
-	\textit{Замечание}. В гиперболической геометрии есть три типа пучков прямых: 1) прямые, пересекающиеся в одной точке; 2) параллельные прямые, пересекающиеся в одной точке; 3) прямые, перпендикулярные одной прямой. В каждом из этих случаев будем говорить, что прямые принадлежат одному пучку.
+	\textit{Замечание}. В гиперболической геометрии есть три типа пучков прямых: 1) прямые, пересекающиеся в одной точке; 2) параллельные прямые; 3) прямые, перпендикулярные одной прямой. В каждом из этих случаев будем говорить, что прямые принадлежат одному пучку.
  
 	\begin{enumerate}[resume*]
-		\item Доказать, что биссектрисы двух внешних углов и одного внутреннего угла треугольника принадлежат одному пучку.
+		\item Доказать, что перпендикуляры к сторонам треугольника, прохходящие через их середины, принадлежат одному пучку.
  
 		\item
 		\begin{enumerate}
-			\item Доказать, что перпендикуляры к сторонам треугольника принадлежат одному пучку.
 			\item Доказать, что высоты треугольника принадлежат одному пучку.
+			\item Доказать, что биссектрисы двух внешних углов и одного внутреннего угла треугольника принадлежат одному пучку.
 		\end{enumerate}
  
 		\item Доказать формулу Герона:
 		\[
-			\sin\!\left(\frac{\Delta}{2}\right) = \frac{(e^s - 1)(e^{s-a} - 1)(e^{s-b} - 1)(e^{s-c} - 1)}{(e^s + 1)(e^{s-a} + 1)(e^{s-b} + 1)(e^{s-c} + 1)},
+			\sin\left(\frac{\Delta}{2}\right) = \frac{\sqrt{(e^s - 1)(e^{s-2a} - 1)(e^{s-2b} - 1)(e^{s-2c} - 1)}}{(e^{a} + 1)(e^{b} + 1)(e^{c} + 1)},
 		\]
 		где $\Delta$ --- площадь треугольника, $s = a + b + c$.
 	\end{enumerate}
  
 	\section{3.2.9. Модель Клейна}
  
-	Модель Клейна получается из модели Пуанкаре в единичном круге следующим образом. Представим единичный круг как экватор сферы и спроецируем его из северного полюса сначала на экваториальную полуплоскость, а затем ортогонально спроецируем эту плоскость на единичный круг. В результате переходим сначала к единичной сфере, перпендикулярными экватору, а затем в единичный круг, перпендикулярными единичного круга.
- 
+	Модель Клейна получается из модели Пуанкаре в единичном круге следующим образом. Представим единичный круг как экватор сферы и спроецируем экваториальную плоскость из северного полюса, а затем точки южного полушария ортогонально спроецируем на экваториальную полуплоскость. В результате окружности, перпендикулярные границе единичного круга, переходят сначала в сечения сферы плоскостями, перпендикулярными экватору, а затем в хорды единичного круга.
+ 	
+	Таким образом, дуге окружности, проходящей через точки $A$ и $B$ граничной окружности (и ортогональной ей), соответсвует хорда $AB$.
 	\begin{enumerate}[resume*]
-		\item Доказать, что точки $Z$ и $W$ в модели Пуанкаре соответствуют точки $Z'$ и $W'$ в модели Клейна:
-		\[
-			w = \frac{2z}{|z|^2 + 1}, \quad \text{в модели Клейна.}
-		\]
  			
-		\begin{center}
-		\begin{tikzpicture}[scale=1.3]
-			% Draw the sphere as an ellipse (oblique projection)
-			\draw[thick] (0,0) ellipse (1.8cm and 1.8cm);
-			% Equator as ellipse (slightly flattened to suggest 3D)
-			\draw[thick] (0,0) ellipse (1.8cm and 0.55cm);
-			% North pole S
-			\coordinate (S) at (0, 1.8);
-			\filldraw (S) circle (1.5pt) node[above right] {$S$};
- 
-			% Points A and B on the equator (inside the disk view)
-			\coordinate (Apt) at (-0.7, -0.12);  % A on equator ellipse
-			\coordinate (Bpt) at (0.5, -0.08);   % B on equator ellipse
-			\filldraw (Apt) circle (1pt) node[left] {$A$};
-			\filldraw (Bpt) circle (1pt) node[right] {$B$};
- 
-			% Chord AB
-			\draw[thick] (Apt) -- (Bpt);
- 
-			% Points Z and W on the sphere surface (above equator)
-			\coordinate (Z) at (-0.35, 0.65);
-			\coordinate (W) at (0.55, 0.8);
-			\filldraw (Z) circle (1pt) node[left] {$Z$};
-			\filldraw (W) circle (1pt) node[above right] {$W$};
- 
-			% Dashed lines from S through Z and W to the equatorial disk
-			\draw[dashed] (S) -- (Apt);
-			\draw[dashed] (S) -- (Bpt);
- 
-			% Lines from S through Z and W showing projection
-			\draw[thin] (S) -- ($(S)!1.55!(Z)$);
-			\draw[thin] (S) -- ($(S)!1.45!(W)$);
- 
-			% Projected points Z', W' on equatorial plane (below Z, W)
-			\coordinate (Zp) at ($(S)!1.55!(Z)$);
-			\coordinate (Wp) at ($(S)!1.45!(W)$);
-			\filldraw (Zp) circle (1pt) node[below] {$Z'$};
-			\filldraw (Wp) circle (1pt) node[right] {$W'$};
-		\end{tikzpicture}
-		\end{center}
+		% \begin{center}
+		% \begin{tikzpicture}[scale=1.3]
+		% 	% Draw the sphere as an ellipse (oblique projection)
+		% 	\draw[thick] (0,0) ellipse (1.8cm and 1.8cm);
+		% 	% Equator as ellipse (slightly flattened to suggest 3D)
+		% 	\draw[thick] (0,0) ellipse (1.8cm and 0.55cm);
+		% 	% North pole S
+		% 	\coordinate (S) at (0, 1.8);
+		% 	\filldraw (S) circle (1.5pt) node[above right] {$S$};
+		% 
+		% 	% Points A and B on the equator (inside the disk view)
+		% 	\coordinate (Apt) at (-0.7, -0.12);  % A on equator ellipse
+		% 	\coordinate (Bpt) at (0.5, -0.08);   % B on equator ellipse
+		% 	\filldraw (Apt) circle (1pt) node[left] {$A$};
+		% 	\filldraw (Bpt) circle (1pt) node[right] {$B$};
+		% 
+		% 	% Chord AB
+		% 	\draw[thick] (Apt) -- (Bpt);
+		% 
+		% 	% Points Z and W on the sphere surface (above equator)
+		% 	\coordinate (Z) at (-0.35, 0.65);
+		% 	\coordinate (W) at (0.55, 0.8);
+		% 	\filldraw (Z) circle (1pt) node[left] {$Z$};
+		% 	\filldraw (W) circle (1pt) node[above right] {$W$};
+		% 
+		% 	% Dashed lines from S through Z and W to the equatorial disk
+		% 	\draw[dashed] (S) -- (Apt);
+		% 	\draw[dashed] (S) -- (Bpt);
+		% 
+		% 	% Lines from S through Z and W showing projection
+		% 	\draw[thin] (S) -- ($(S)!1.55!(Z)$);
+		% 	\draw[thin] (S) -- ($(S)!1.45!(W)$);
+		% 
+		% 	% Projected points Z', W' on equatorial plane (below Z, W)
+		% 	\coordinate (Zp) at ($(S)!1.55!(Z)$);
+		% 	\coordinate (Wp) at ($(S)!1.45!(W)$);
+		% 	\filldraw (Zp) circle (1pt) node[below] {$Z'$};
+		% 	\filldraw (Wp) circle (1pt) node[right] {$W'$};
+		% \end{tikzpicture}
+		% \end{center}
 
-		\item Доказать, что $\ln[A, B, Z, W] = 2\ln[A, B, Z', W']$.
+		\item В модели Пуанкаре прямая, проходящая через точки $Z$ и $W$, пересекает граничную окружность в точках $A$ и $B$. В модели клейна точкам $Z$ и $W$ соотвествуют точки $Z'$ и $W$.
+
+		Доказать, что $\ln[A, B, Z', W'] = 2\ln[A, B, Z, W].$
  
-		\item Доказать, что в модели Клейна прямые принадлежат одному пучку тогда и только тогда, когда прямые, содержащие их, принадлежат одному евклидову пучку.
+		\item Доказать, что точке $z$ в модели Пуанкаре соответствует точка $w = \frac{2z}{|z|^2 + 1}$ в модели Клейна.
+
+
+		\item Доказать, что в модели Клейна прямые принадлежат одному пучку тогда и только тогда, когда содержащие их евклидовы пряме имеют общую точку.
  
-		\item Доказать, что изображённые на рис. а) и б) построения соответственно позволяют построить серединный $M$ отрезка $AB$ и биссектрису угла между прямыми $a$ и $b$.
+		\item Доказать, что изображённые на рис. а) и б) построения позволяют построить середину $M$ отрезка $AB$ и биссектрису угла между прямыми $a$ и $b$.
 
 		\begin{center}
 		\begin{tikzpicture}[scale=1.25]
@@ -490,7 +492,7 @@
 			\item На сфере фиксированы точки $A$ и $B$. Найти множество точек $C$, для которых $S_{ABC} = \mathrm{const}$.
 		\end{enumerate}
  
-		\textit{Обозначение}: $a = BC$ --- угловая величина стороны $BC$, $A$ --- величина угла при вершине $A$.
+		\textit{Обозначение}: $a = BC$ -- угловая величина стороны $BC$, $A$ -- величина угла при вершине $A$.
  
 		\item
 		\begin{enumerate}
@@ -536,7 +538,7 @@
 		\[
 			P(x) = \frac{ax + b}{cx + d},
 		\]
-		где $a, b, c, d$ --- такие числа, что $ad - bc \ne 0$. (Такие отображения называют дробно-линейными.)
+		где $a, b, c, d$ --- такие числа, что $ad - bc \ne 0$. (Такие отображения называют \textit{дробно-линейными}.)
  
 		\textit{Определение}. Пусть $\alpha_1$ и $\alpha_2$ --- две плоскости в пространстве, $O$ --- точка, не лежащая ни на одной из этих плоскостей. \textit{Центральным проектированием} плоскости $\alpha_1$ на плоскость $\alpha_2$ с центром $O$ называют отображение, которое точке $A_1$ плоскости $\alpha_1$ ставит в соответствие точку пересечения прямой $OA_1$ с плоскостью $\alpha_2$.
  
