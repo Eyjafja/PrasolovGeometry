@@ -1,6 +1,6 @@
-\input{preamble}
+% \input{preamble}
 
-\begin{document}
+% \begin{document}
 
 	\section{3.1. Геометрия Евклида}
 
@@ -32,7 +32,6 @@
 		\item Любой невырожденный треугольник конгруэнтен треугольнику с координатами $(0,0)$, $(a,0)$, $(b\cos\varphi, b\sin\varphi)$, где $a>0$, $b>0$, $0<\varphi<\pi$.
 
 		Найти его 1) медианы и их длины, 2) высоты и их длины, 3) биссектрисы и их длины, 4) центр описанного круга, 5) центр вписанного круга, 6) центр тяжести, 7) центр вневписанных окружностей.
-		\newpage
 		\item Доказать следующее классические теоремы:
 
 		1) Теорему Герона; 2) Теорему Чевы; 3) Теорему Менелая.
@@ -118,7 +117,6 @@
 			\item Доказать, что если две прямые имеют общий перпендикуляр, то они расходятся.
 		\end{enumerate}
 		\item Доказать, что множество точек, равноудаленных от данных прямых, представляет собой одну или две прямые.
-		\newpage
 		\item Доказать, что любую пару параллельных прямых можно перевести в любую другую пару параллельных прямых.
 	\end{enumerate}
 	\section{3.2.4. Углы в геометрии Лобачевского}
@@ -209,7 +207,6 @@
 		\item Три угла четырехугольника равны $\frac{\pi}{2}$, а четвертый угол равен $\gamma$. Найти $\gamma$, если известны длины $a$ и $b$ сторон, соединяющих прямые углы.
 	\end{enumerate}
 
-
 	\section{3.2.8. Геометрия треугольника}
  
 	\begin{enumerate}[resume*]
@@ -217,53 +214,13 @@
 		\[
 			\frac{\sh AC_1}{\sh C_1 B} \cdot \frac{\sh BA_1}{\sh A_1 C} \cdot \frac{\sh CB_1}{\sh B_1 A} = 1.
 		\]
- 		\begin{center}
-		\begin{tikzpicture}[scale=1.0, line cap=round, line join=round]
-				% Основные точки
-			  \coordinate (A)  at (0,0);
-			  \coordinate (B)  at (1.35,3.05);
-			  \coordinate (C)  at (4.20,0.42);
-			  \coordinate (B1) at (4.92,0.46); % B_1 на продолжении AC
-
-			  % Точки на гиперболической линии l (без перегибов)
-			  \coordinate (A2) at (0.00,1.72);
-			  \coordinate (A2e) at (0.00,1.90);
-			  \coordinate (C2) at (0.95,2.10);
-			  \coordinate (A1) at (1.97,2.20);
-			  \coordinate (C1) at (4.20,1.15);
-			  \coordinate (C1e) at (4.20,1.26);
-			  \coordinate (B2) at (1.35,1.64);
-
-			  % "Треугольник" (кривые стороны)
-			  \draw[thick] (A) .. controls (0.62,1.12) and (1.00,2.06) .. (B);
-			  \draw[thick] (B) .. controls (2.00,1.78) and (3.05,1.00) .. (C);
-			  % Нижняя сторона и ее продолжение: одна кривая без стыка в C
-			  \draw[thick,domain=-0.18:4.92,samples=150,smooth]
-				plot (\x,{-0.00903342*(\x)^2 + 0.13794*(\x)});
-
-			  % Линия l: одна коническая (параболическая) дуга без точек перегиба
-			  \draw[thick,domain=-0.18:4.92,samples=130,smooth]
-				plot (\x,{-0.167934*(\x)^2 + 0.570137*(\x) + 1.72});
-
-			  % Вспомогательные отрезки
-			  \draw[thick] (A) -- (A2);
-			  \draw[thick] (C) -- (C1e);
-			  \draw[thick] (B) -- (B2); % BB2
-
-			  % Подписи (с вынесением от кривых)
-			  \node[left,xshift=-3pt,yshift=-1pt]  at (A) {$A$};
-			  \node[above,yshift=4pt]              at (B) {$B$};
-			  \node[below,yshift=-4pt]             at (C) {$C$};
-
-			  \node[left,xshift=-4pt,yshift=2pt]   at (A2) {$A_2$};
-			  \node[left,xshift=-4pt,yshift=4pt]   at (C2) {$C_1$};
-			  \node[above,yshift=5pt]              at (A1) {$A_1$};
-			  \node[right,xshift=5pt,yshift=2pt]   at (C1) {$C_2$};
-			  \node[right,xshift=6pt,yshift=1pt]   at (B1) {$B_1$};
-			  \node[right,xshift=5pt,yshift=-1pt]  at (B2) {$B_2$};
-			  \node[above,xshift=0pt,yshift=4pt]   at (3.05,1.68) {$l$};
-		\end{tikzpicture}
-		\end{center}
+	\end{enumerate}
+	\begin{figure}[H]
+		\centering
+		\def\svgwidth{\columnwidth}
+		{\Huge \scalebox{0.7}{\input{menelay.pdf_tex}} }
+	\end{figure}
+	\begin{enumerate}[resume*]
 		\item (Теорема Чевы) На сторонах $BC$, $CA$ и $AB$ треугольника $ABC$ (но не на их продолжениях!) взяты точки $A_1$, $B_1$ и $C_1$. Доказать, что отрезки $AA_1$, $BB_1$ и $CC_1$ пересекаются в одной точке тогда и только тогда, когда выполнено одно из следующих эквивалентных условий:
 		\begin{enumerate}
 			\item $\frac{\sin ACC_1}{\sin C_1CB} \cdot \frac{\sin BAA_1}{\sin A_1AC} \cdot \frac{\sin CBB_1}{\sin B_1BA} = 1$;
@@ -355,122 +312,24 @@
  
 		\item Доказать, что изображённые на рис. а) и б) построения позволяют построить середину $M$ отрезка $AB$ и биссектрису угла между прямыми $a$ и $b$.
 
-		\begin{center}
-		\begin{tikzpicture}[scale=1.25]
-			%--- Figure a): midpoint construction in Klein disk ---
-			\begin{scope}
-				% Unit disk boundary
-				\draw[thick] (0,0) circle (1.5cm);
-				% Points A and B on the chord
-				\coordinate (A) at (-0.9, -0.5);
-				\coordinate (B) at (0.85, -0.3);
-				\filldraw (A) circle (1pt) node[left] {$A$};
-				\filldraw (B) circle (1pt) node[right] {$B$};
-				% The chord AB (hyperbolic line)
-				% Find where line AB intersects the boundary circle radius 1.5
-				% Direction vector
-				% We extend AB to boundary: parametric A + t*(B-A)
-				% |A + t*(B-A)|^2 = 1.5^2  => solve for t
-				% A=(-0.9,-0.5), B=(0.85,-0.3), B-A=(1.75,0.2)
-				% (-0.9+1.75t)^2 + (-0.5+0.2t)^2 = 2.25
-				% 0.81 - 3.15t + 3.0625t^2 + 0.25 - 0.2t + 0.04t^2 = 2.25
-				% 3.1025t^2 - 3.35t - 1.19 = 0  => t=(3.35 ± sqrt(11.2225+14.7628))/6.205
-				% t=(3.35 ± 5.091)/6.205 => t1=1.362, t2=-0.280
-				\coordinate (P1) at ($(A)!1.362!(B)$);   % boundary point beyond B
-				\coordinate (P2) at ($(A)!-0.280!(B)$);  % boundary point beyond A
-				\draw[thick] (P2) -- (P1);
- 
-				% Four lines from A and B to opposite boundary points, forming an X
-				% Lines through A: from P1 through A to boundary, and from P2 through B to boundary
-				% We draw the diagonals of the complete quadrilateral to find M
-				% Two extra points on boundary top area
-				\coordinate (T1) at (-0.6, 1.37);   % top-left on boundary
-				\coordinate (T2) at (0.6,  1.37);   % top-right on boundary
- 
-				% Lines: T1--P1 (passes through somewhere) and T2--P2
-				% The intersection of diagonals gives M
-				% Line T1-A extended, T2-B extended
-				\draw[thin] (T1) -- (P1);
-				\draw[thin] (T2) -- (P2);
-				% Cross lines: T1-B and T2-A to boundary
-				\draw[thin] (T2) -- (P2);
-				% Actually draw the 4 lines of the complete quadrilateral:
-				% Through A: T1-A and T2-A
-				\draw[thin] (T1) -- ($(T1)!2.2!(A)$);
-				\draw[thin] (T2) -- ($(T2)!2.1!(A)$);
-				% Through B: T1-B and T2-B  
-				\draw[thin] (T1) -- ($(T1)!2.0!(B)$);
-				\draw[thin] (T2) -- ($(T2)!1.9!(B)$);
- 
-				% Midpoint M = intersection of diagonals T1B∩T2A  (approx)
-				% T1=(-0.6,1.37), B=(0.85,-0.3): dir=(1.45,-1.67), param: (-0.6+1.45t, 1.37-1.67t)
-				% T2=(0.6,1.37),  A=(-0.9,-0.5): dir=(-1.5,-1.87)
-				% Intersection: -0.6+1.45t = 0.6-1.5s => 1.45t+1.5s=1.2
-				%               1.37-1.67t = 1.37-1.87s => 1.67t=1.87s => s=1.67t/1.87=0.893t
-				% 1.45t + 1.5*0.893t = 1.2 => 1.45t+1.339t=1.2 => 2.789t=1.2 => t=0.430
-				\coordinate (M) at (-0.377, 0.652);  % approx
-				\filldraw[fill=white] (M) circle (1.5pt) node[right] {$M$};
- 
-				% Tick marks on AM and MB on the chord
-				\draw[thin] ($(A)!0.5!(M)$) ++(0.05,-0.08) -- +(-0.1,0.08);
-				\draw[thin] ($(M)!0.5!(B)$) ++(0.05,-0.08) -- +(-0.1,0.08);
- 
-				\node[below] at (0,-1.7) {а)};
-			\end{scope}
- 
-			%--- Figure b): angle bisector construction in Klein disk ---
-			\begin{scope}[xshift=4cm]
-				\draw[thick] (0,0) circle (1.5cm);
- 
-				% Two chords (hyperbolic lines a and b) intersecting inside the disk
-				% Line a: from boundary point Qa1 to Qa2
-				\coordinate (Qa1) at (-1.3, 0.7);
-				\coordinate (Qa2) at (0.9, -1.2);
-				% Line b: from boundary point Qb1 to Qb2
-				\coordinate (Qb1) at (-1.0, -1.1);
-				\coordinate (Qb2) at (1.2,  0.9);
- 
-				\draw[thick] (Qa1) -- (Qa2) node[below right, font=\small] {$a$};
-				\draw[thick] (Qb1) -- (Qb2) node[above right, font=\small] {$b$};
- 
-				% Intersection point I of lines a and b
-				% Line a: (-1.3,0.7)+t*(2.2,-1.9)
-				% Line b: (-1.0,-1.1)+s*(2.2,2.0)
-				% -1.3+2.2t = -1.0+2.2s => 2.2t-2.2s=0.3 => t-s=0.136
-				%  0.7-1.9t = -1.1+2.0s => -1.9t-2.0s=-1.8 => 1.9t+2.0s=1.8
-				% s=t-0.136 => 1.9t+2.0(t-0.136)=1.8 => 3.9t=2.072 => t=0.531
-				\coordinate (I) at (-0.132, -0.310);
-				\filldraw (I) circle (1pt);
- 
-				% Bisector construction: connect opposite boundary endpoints
-				% Diagonal 1: Qa1 -- Qb2
-				\draw[thin] (Qa1) -- (Qb2);
-				% Diagonal 2: Qa2 -- Qb1
-				\draw[thin] (Qa2) -- (Qb1);
- 
-				% The two bisectors pass through I and intersection of diagonals
-				% Intersection of Qa1-Qb2 and Qa2-Qb1 (this gives the "pole"):
-				% Qa1=(-1.3,0.7) dir to Qb2=(1.2,0.9): dir=(2.5,0.2), param (-1.3+2.5t,0.7+0.2t)
-				% Qa2=(0.9,-1.2) dir to Qb1=(-1.0,-1.1): dir=(-1.9,0.1), param (0.9-1.9s,-1.2+0.1s)
-				% -1.3+2.5t=0.9-1.9s => 2.5t+1.9s=2.2
-				%  0.7+0.2t=-1.2+0.1s => 0.2t-0.1s=-1.9 => s=2t+19  (approximate issue, recompute)
-				% 0.7+0.2t = -1.2+0.1s => 0.1s=1.9+0.2t => s=19+2t
-				% 2.5t+1.9(19+2t)=2.2 => 2.5t+36.1+3.8t=2.2 => 6.3t=-33.9 => off, lines nearly parallel
-				% Use other diagonal pair for bisectors:
-				% Bisector 1: line through I and the intersection of Qa1-Qb1 extended to boundary
-				% For simplicity, show approximate bisector as line through I toward boundary:
-				\coordinate (Bis1a) at (-1.45, -0.58);
-				\coordinate (Bis1b) at (1.2, 0.3);
-				\draw[dashed, thin] (Bis1a) -- (Bis1b);
- 
-				\coordinate (Bis2a) at (0.05, -1.5);
-				\coordinate (Bis2b) at (-0.3, 1.49);
-				\draw[dashed, thin] (Bis2a) -- (Bis2b);
- 
-				\node[below] at (0,-1.7) {б)};
-			\end{scope}
-		\end{tikzpicture}
-		\end{center}
+		\begin{figure}[H]
+			\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			а)
+			\def\svgwidth{\columnwidth}
+			{\Large \scalebox{0.7}{\input{path2.pdf_tex}}}
+		\end{minipage}
+		\hfill % Adds horizontal space between the figures
+		% Right Figure
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			б)
+			\def\svgwidth{\columnwidth}
+			{\Huge \scalebox{0.7}{\input{path3.pdf_tex}}}
+		\end{minipage}
+				
+		\end{figure}
 	\end{enumerate}
  
 	\section{3.3. Геометрия Римана}
@@ -627,7 +486,7 @@
 		\frac{z-i}{z+i} \cdot \frac{\bar{z}-i}{\bar{z}+i} = \left|\frac{z_0 - i}{z_0 + i}\right|^2.
 	\]
  
-	\subsubsection{3.2.3. Расстояние на плоскости Лобачевского (продолжение)}
+	\subsubsection{3.2.3. Расстояние на плоскости Лобачевского}
  
 		15. \textit{Указание.} Рассмотрите отдельно преобразования $z \mapsto z + b$ ($b \in \mathbb{R}$), $z \mapsto -\frac{1}{z}$ и аналогичные преобразования для $\bar{z}$.
  
@@ -807,4 +666,5 @@
  
 	50. \textit{Указание.} В том случае, когда прямые пересекаются или параллельны, утверждение очевидно. В случае расходящихся прямых удобнее перейти к модели Пуанкаре в единичном круге. Пусть касательные к единичному кругу в точках $A$ и $B$ пересекаются в точке $O$. Тогда дуга $AB$ окружности с центром $O$ является гиперболической прямой. Рассмотрим хорду $CD$, продолжение которой проходит через точку $O$. Проведём к дуге евклидовой окружности, соответствующей гиперболической прямой $CD$, касательную $OP$. Так как $OP^2 = OC \cdot OD = OB^2$, то гиперболические прямые $AB$ и $CD$ ортогональны. Верно и обратное: если гиперболическая прямая $CD$ ортогональна $AB$, то евклидова прямая $CD$ перпендикулярна $AB$, то евклидова прямая $CD$ проходит через точку $O$.
  
-\end{document}
+%
+	% \end{document}
